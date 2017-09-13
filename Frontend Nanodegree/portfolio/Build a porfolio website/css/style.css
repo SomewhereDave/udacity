@@ -1,7 +1,6 @@
 /*This helps width visualization of boxes during development*/
 * {
-/*  outline: 1px solid red !important;
-*/	-webkit-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
@@ -24,70 +23,81 @@
 }
 
 .col-1 {
-	width: 8.33%;
+	width: calc(100% / 12);
 }
 
 .col-2 {
-	width: 16.66%;
+	width: calc(100% / (12/2));
 }
 
 .col-3 {
-	width: 25%;
+	width: calc(100% / (12/3));  
 }
 
 .col-4 {
-	width: 33.33%;
+	width: calc(100% / (12/4));
 }
 
 .col-5 {
-	width: 41.66%;
+	width: calc(100% / (12/5));
 }
 
 .col-6 {
-	width: 50%;
+	width: calc(100% / (12/6)); 
 }
 
 .col-7 {
-	width: 58.33%;
+	width: calc(100% / (12/7));
 }
 
 .col-8 {
-	width: 66.66%;
+	width: calc(100% / (12/8));
 }
 
 .col-9 {
-	width: 75%;
+	width: calc(100% / (12/9));  
 }
 
 .col-10 {
-	width: 83.33%;
+	width: calc(100% / (12/10));
 }
 
 .col-11 {
-	width: 91.66;
+	width: calc(100% / (12/11));
 }
 
 .col-12 {
 	width: 100%;
 }
 /*Framework ends here*/
+body {
+	margin: 0;
+	padding: 0;
+	background: url("../img/wallpaper.jpg") #fff;
+	background-size:cover
+}
+
+.background {
+	background-color: rgba(255,255,255, 0.4);
+}
 
 /*Main CSS for wide screens*/
+header {
+	border-bottom: 2px solid #084766;
+	justify-content: space-between;
+	text-transform: uppercase;
+	padding: 0 5px;
+}
+
 #head-name {
-	color: #5A9FC0;
+	color: #084766;
 	font-weight: lighter;
 	font-size: 60px;
 }
 
 #head-sub {
 	font-size: 20px;
-	margin-bottom: 0.25em 0;
-}
-
-header {
-	border-bottom: 2px solid #084766;
-	justify-content: space-between;
-	text-transform: uppercase;
+	margin-bottom: 0.25em;
 }
 
 .head-title {
@@ -103,7 +113,7 @@ header {
 }
 
 h1 {
-	color: #5A9FC0;
+	color: #084766;
 }
 
 figure {
@@ -118,6 +128,29 @@ figure {
 	justify-content: space-between;
 }
 
+.image {
+	position: relative;
+}
+
+.main-pic h2 {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 100%;
+	padding: 10px 0;
+	margin-bottom: 0;
+	transform: translate(-50%);
+	text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    transition: padding-bottom 0.2s, font-weight 0.2s;
+}
+
+.main-pic h2:hover {
+	padding-bottom: 30px;
+	font-weight: bold;
+}
+
 .feat-work img {
 	max-width: 100%;
 }
@@ -127,11 +160,30 @@ a {
 	color: #084766;
 }
 
+.feat-teaser {
+    width: 90%;
+    margin: auto;
+    text-align: justify;
+    margin-top: 5px;
+    padding: 2px;
+    color: #084766;
+    hyphens: auto;
+}
+
+.feat-info {
+	font-size: 12px;
+	color: #084766;
+}
+
+.diamond:before {
+	content: "\ \2666\ ";
+}
 
 /*Footer*/
 footer {
 	margin-top: 5em;
 	background-color: #227299;
+	align-items: center;
 }
 
 footer ul {
@@ -146,65 +198,86 @@ footer ul {
 footer li {
 	margin: 0 10px;
 }
-footer a:hover {
+.about a:hover {
 	color: #ffffff;
 }
 
 
 /*Media Queries*/
 @media screen and (max-width: 550px) {
-/*general*/
-	img {
-		width: 100%;
-		height: auto;
+
+	/*header*/
+	#head-name {
+		font-size: 25px;
+	}
+	#head-sub {
+		font-size: 12.5px
 	}
 
-/*header*/
-#head-name {
-	font-size: 25px;
-}
-#head-sub {
-	font-size: 12.5px
+	#logo {
+		height: 40px;
+		width: 40px;
+		margin-bottom: 5px;
 }
 
-/*Content*/
-
-	.feat-work{
+	/*Content*/
+	.feat-work {
 		width: 100%;
-	}
-
-	figcaption {
-		margin-bottom: 30px;
+	    margin-bottom: 30px;
 	}
 
 	h2 {
 		margin: 5px auto;
 	}
+	
+	.feat-teaser {
+	    width: 80%;
+	}
+
+	.feat-info {
+		display: none;
+	}
 
 	/*footer*/
 	footer {
 		margin-top: 0;
+		flex-direction: column;
+	}
+}
+
+
+@media screen and (min-width: 551px) {
+	/*Content*/
+	.main-pic h2 {
+		font-size: 32px;
 	}
 }
 
 
 @media screen and (min-width: 551px) and (max-width: 860px) {
-/*general*/
-	img {
-		width: 100%;
-		height: auto;
+
+	/*header*/
+	#head-name {
+		font-size: 30px;
+	}
+	#head-sub {
+		font-size: 15px
 	}
 
-/*header*/
-#head-name {
-	font-size: 25px;
-}
-#head-sub {
-	font-size: 12.5px
+	#logo {
+		height: 50px;
+		width: 50px;
+		margin-bottom: 5px;
+	}
+
+	/*Content*/
+	.feat-link {
+		display: none;
+	}
 }
 
-/*Content*/
-	.feat-link {
+@media screen and (min-width: 551px) and (max-width: 640px) {
+	.feat-teaser, .feat-info {
 		display: none;
 	}
 }
@@ -213,5 +286,11 @@ footer a:hover {
 	.feat-work img {
 		width: 380px;
 	}
+}
 
+
+@media screen and (min-width: 1175px) {
+	.feat-work:not(:last-child) figcaption{
+    	border-right: 5px solid rgba(8, 71, 102, 0.75);
+	}
 }
